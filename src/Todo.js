@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import './Todo.css';
 import db from './firebase';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import EditIcon from '@material-ui/icons/Edit';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -21,9 +22,7 @@ function Todo(props) {
     const [open, setOpen] = useState(false);
     const [input, setInput] = useState();
 
-    const handleOpen = () => {
-        setOpen(true);
-    }
+
     const updateTodo = (event) => {
         event.preventDefault();
 
@@ -33,7 +32,7 @@ function Todo(props) {
         setOpen(false);
     }
     return (
-        <>
+        <div className="todo">
             <Modal
                 open={open}
                 onClose={e => setOpen(false)} >
@@ -48,13 +47,14 @@ function Todo(props) {
             </Modal>
             <List className="todo__list">
                 <ListItem>
-                    <ListItemText primary={props.todo.todo} secondary="the dead" />
+                    <ListItemText className="todo__one" primary={props.todo.todo}  />
 
                 </ListItem>
-                <button onClick={e => setOpen(true)}>Edit</button>
-                <DeleteForeverIcon onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
+                <EditIcon onClick={e => setOpen(true)}>Edit</EditIcon>
+                <DeleteForeverIcon className="delete__icon" onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
             </List>
-        </>
+            
+        </div>
     )
 }
 
