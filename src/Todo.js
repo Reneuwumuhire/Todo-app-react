@@ -4,6 +4,7 @@ import './Todo.css';
 import db from './firebase';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
+import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -33,21 +34,34 @@ function Todo(props) {
     }
     return (
         <div className="todo">
-            <Modal
-                open={open}
-                onClose={e => setOpen(false)} >
-                <div className={classes.paper}>
-                    <h1>I am A Modal</h1>
-                    <form>
-                        <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)} />
-                        <Button type="submit" onClick={updateTodo}>Update Todo</Button>
+            
+                <Modal className="model__todo"
+                    open={open}
+                    onClose={e => setOpen(false)} >
+                    <div className= {classes.paper}>
+                        <h1>You can change now the Todo</h1>
+                        <form>
+                        <TextField
+                            id="standard-multiline-flexible"
+                            label="Multiline"
+                            multiline
+                            rowsMax={4}
+                            placeholder={props.todo.todo}
+                            value={input}
+                            onChange={event => setInput(event.target.value)}
 
-                    </form>
-                </div>
-            </Modal>
-            <List className="todo__list">
+                        />
+                            {/* <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)} /> */}
+                            <Button type="submit" onClick={updateTodo} variant="contained" color="secondary">Update Todo</Button>
+
+                        </form>
+                    </div>
+                </Modal>
+            
+            
+            <List key={props.todo.id} className="todo__list">
                 <ListItem>
-                    <ListItemText className="todo__one" primary={props.todo.todo}  />
+                    <ListItemText  className="todo__one" primary={props.todo.todo} secondary={props.todo.timestamp} />
 
                 </ListItem>
                 <EditIcon onClick={e => setOpen(true)}>Edit</EditIcon>

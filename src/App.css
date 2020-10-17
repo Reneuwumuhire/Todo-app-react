@@ -63,10 +63,8 @@ li {
 
 	/* transform: rotate(180deg); */
 }
-.list__todo li{
-	/* transform: rotate(-180deg); */
-}
-
+/* .list__todo li{
+	/* transform: rotate(-180deg); }*/
 .todo {
 	border-radius: 30px;
 	margin-bottom: 10px;

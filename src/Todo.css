@@ -1,35 +1,53 @@
-
 form {
-	
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	width: 90%;
 }
 
-
 .todo__list {
 	display: flex;
 	align-items: center;
-	height: 20px;
+	height: fit-content;
+	min-height: 20px;
 	margin: 10px;
 	text-align: center;
 	background: #4e4b5e;
 	border-radius: 5px;
 	/* transform: rotate(180deg); */
 }
-.todo__list > button{
+.todo__list > button {
 	background: rgb(186, 134, 56);
 	border: none;
 	width: 100px;
-	
-	
 }
-.delete__icon{
+.delete__icon {
 	/* color: rgb(233, 59, 59); */
 	padding: 10px;
 }
 
-.todo__one{
+.todo__one {
 	/* transform: rotate(-180deg); */
+	height: fit-content;
+	word-wrap: break-word;
+	padding: 10px;
+	border-radius: 10px;
+
+
+}
+.model__todo, .paper {
+	display: flex !important;
+	flex-direction: column !important;
+	align-items: center !important;
+	justify-content: center !important;
+	border-radius: 10px !important;
+	border: 0px !important;
+	
+}
+input {
+	height: 30px;
+    display: inline-flex;
+    border: none;
+    background-color: darkgrey;
+    text-indent: 10px;
 }
