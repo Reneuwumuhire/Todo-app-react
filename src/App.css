@@ -4,7 +4,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: #272533;
+	background: #171818;
 	width: 90%;
 	min-height: 50%;
 	color: azure;
@@ -24,15 +24,16 @@ li {
 }
 .todo__form {
 	display: flex;
-	flex-direction: inherit;
-	width: 100%;
-	bottom: 20px;
+	flex-direction: row !important;
+	margin: 10px;
+	align-items: center;
 }
-.form__label {
-	color: white !important;
+.form__input{
+	border-radius: 5px;
 }
-.form__input {
-	color: white !important;
+
+.form__button {
+	margin-top: 20px;
 }
 .top__section {
 	position: sticky;
@@ -43,8 +44,9 @@ li {
 	top: 0;
 	margin-bottom: 10px;
 	z-index: 20;
-	background: #4e4b5e;
+	background: #303233;
 	width: 100%;
+	padding-bottom: 40px;
 }
 .down__section {
 	margin-top: 20px;

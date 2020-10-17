@@ -4,7 +4,7 @@ import './Todo.css';
 import db from './firebase';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import EditIcon from '@material-ui/icons/Edit';
-import TextField from '@material-ui/core/TextField';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +41,7 @@ function Todo(props) {
                     <div className= {classes.paper}>
                         <h1>You can change now the Todo</h1>
                         <form>
-                        <TextField
+                        <TextareaAutosize
                             id="standard-multiline-flexible"
                             label="Multiline"
                             multiline
@@ -64,7 +64,7 @@ function Todo(props) {
                     <ListItemText  className="todo__one" primary={props.todo.todo} secondary={props.todo.timestamp} />
 
                 </ListItem>
-                <EditIcon onClick={e => setOpen(true)}>Edit</EditIcon>
+                <EditIcon className="edit__icon" onClick={e => setOpen(true)}>Edit</EditIcon>
                 <DeleteForeverIcon className="delete__icon" onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
             </List>
             

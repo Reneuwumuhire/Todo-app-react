@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Todo from './Todo';
-import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
+import { Button, FormControl } from '@material-ui/core';
 import db from './firebase';
 import firebase from 'firebase';
-import moment from 'moment'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+// import moment from 'moment'
 function App() {
 
   const [todos, setTodos] = useState([]);
@@ -18,15 +19,16 @@ function App() {
           .map(doc =>
             ({
               id: doc.id,
-              todo: doc.data().todo,
-              timestamp: moment(doc.data().timestamp.toDate().toString()).calendar()
-            }
+              todo: doc.data().todo,}
             )
           )
       )
     });
 
   }, []);
+
+    
+  
 
   const addTodo = (event) => {
     event.preventDefault();
@@ -44,10 +46,8 @@ function App() {
         <h2>What do you have to do Today </h2>
         <form className="new__todo">
           <FormControl className="todo__form" >
-            <InputLabel className="form__label">Add new todo</InputLabel>
-            <Input className="form__input" value={input} onChange={event => setInput(event.target.value)} />
-            <Button className="form__button" disabled={!input} variant="contained" color="secondary" type="submit" onClick={addTodo}>Add To Do</Button>
-
+            <TextareaAutosize className="form__input" rowsMin={2} value={input} onChange={event => setInput(event.target.value)} />
+            <Button className="form__button" disabled={!input} variant="contained" color="primary" type="submit" onClick={addTodo}>Add To Do</Button>
           </FormControl>
         </form>
       </div>

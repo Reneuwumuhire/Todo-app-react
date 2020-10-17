@@ -12,7 +12,7 @@ form {
 	min-height: 20px;
 	margin: 10px;
 	text-align: center;
-	background: #4e4b5e;
+	background: #303233;
 	border-radius: 5px;
 	/* transform: rotate(180deg); */
 }
@@ -24,8 +24,14 @@ form {
 .delete__icon {
 	/* color: rgb(233, 59, 59); */
 	padding: 10px;
+	color: #7d5ae6;
 }
-
+.edit__icon{
+	color:#4e9d12;
+}
+.MuiListItemText-secondary{
+	color: red;
+}
 .todo__one {
 	/* transform: rotate(-180deg); */
 	height: fit-content;
