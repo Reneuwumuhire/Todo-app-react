@@ -5,7 +5,8 @@ import { Button, FormControl } from '@material-ui/core';
 import db from './firebase';
 import firebase from 'firebase';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-// import moment from 'moment'
+// import moment from 'moment';
+import Notodo from './Notodo';
 function App() {
 
   const [todos, setTodos] = useState([]);
@@ -40,6 +41,9 @@ function App() {
     // setTodos([...todos, input]);
     setInput('');
   }
+
+
+
   return (
     <div className="App">
       <div className="top__section">
@@ -54,9 +58,7 @@ function App() {
 
       <div className="down__section">
         <ul className="list__todo">
-          {todos.map(todo => (
-            <Todo key={todo.id} id={todo.id} todo={todo} timestamp={todo.timestamp} />
-          ))}
+          {(todos.length !== 0) ? (todos.map(todo => <Todo key={todo.id} id={todo.id} todo={todo} timestamp={todo.timestamp} />)) : <Notodo />}
         </ul>
       </div>
 
