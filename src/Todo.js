@@ -34,14 +34,16 @@ function Todo(props) {
     }
     return (
         <div className="todo">
-            
-                <Modal className="model__todo"
-                    open={open}
-                    onClose={e => setOpen(false)} >
-                    <div className= {classes.paper}>
-                        <h1>You can change now the Todo</h1>
-                        <form>
+
+            <Modal className="model__todo"
+                open={open}
+                onClose={e => setOpen(false)} >
+                <div className={classes.paper}>
+                    <h1>You can change now the Todo</h1>
+                    <form>
                         <TextareaAutosize
+                            rowsMin={2}
+                            className="edit__text"
                             id="standard-multiline-flexible"
                             label="Multiline"
                             multiline
@@ -51,23 +53,23 @@ function Todo(props) {
                             onChange={event => setInput(event.target.value)}
 
                         />
-                            {/* <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)} /> */}
-                            <Button type="submit" onClick={updateTodo} variant="contained" color="secondary">Update Todo</Button>
+                        {/* <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)} /> */}
+                        <Button type="submit" onClick={updateTodo} variant="contained" color="secondary">Update Todo</Button>
 
-                        </form>
-                    </div>
-                </Modal>
-            
-            
+                    </form>
+                </div>
+            </Modal>
+
+
             <List key={props.todo.id} className="todo__list">
                 <ListItem>
-                    <ListItemText  className="todo__one" primary={props.todo.todo} secondary={props.todo.timestamp} />
+                    <ListItemText className="todo__one" primary={props.todo.todo} secondary={props.todo.timestamp} />
 
                 </ListItem>
                 <EditIcon className="edit__icon" onClick={e => setOpen(true)}>Edit</EditIcon>
                 <DeleteForeverIcon className="delete__icon" onClick={event => db.collection('todos').doc(props.todo.id).delete()} />
             </List>
-            
+
         </div>
     )
 }

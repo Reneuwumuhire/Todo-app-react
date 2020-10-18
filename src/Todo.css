@@ -26,10 +26,10 @@ form {
 	padding: 10px;
 	color: #7d5ae6;
 }
-.edit__icon{
-	color:#4e9d12;
+.edit__icon {
+	color: #4e9d12;
 }
-.MuiListItemText-secondary{
+.MuiListItemText-secondary {
 	color: red;
 }
 .todo__one {
@@ -38,22 +38,30 @@ form {
 	word-wrap: break-word;
 	padding: 10px;
 	border-radius: 10px;
-
-
 }
-.model__todo, .paper {
+.model__todo,
+.paper {
+	width: auto !important;
 	display: flex !important;
 	flex-direction: column !important;
 	align-items: center !important;
 	justify-content: center !important;
 	border-radius: 10px !important;
 	border: 0px !important;
-	
+}
+.makeStyles-paper-1 {
+	width: auto !important;
+	margin: 0 16px !important;
+	border-radius: 10px;
+	border: none !important;
 }
 input {
 	height: 30px;
-    display: inline-flex;
-    border: none;
-    background-color: darkgrey;
-    text-indent: 10px;
+	display: inline-flex;
+	border: none;
+	background-color: darkgrey;
+	text-indent: 10px;
+}
+.edit__text{
+	resize: none;
 }

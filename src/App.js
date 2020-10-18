@@ -9,6 +9,8 @@ import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Notodo from './Notodo';
 function App() {
 
+
+
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState('');
 
@@ -17,19 +19,23 @@ function App() {
       setTodos(
         snapshot
           .docs
-          .map(doc =>
-            ({
-              id: doc.id,
-              todo: doc.data().todo,}
-            )
+          .map(doc => {
+            return {
+              ...doc.data(),
+              todo: doc.data().todo,
+
+              timestamp: !doc.data().timestamp ? "" : doc.data().timestamp.toDate().toLocaleString()
+
+            }
+          }
+
           )
-      )
-    });
+    )})
 
   }, []);
 
-    
-  
+
+
 
   const addTodo = (event) => {
     event.preventDefault();
