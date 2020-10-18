@@ -5,7 +5,7 @@ import { Button, FormControl } from '@material-ui/core';
 import db from './firebase';
 import firebase from 'firebase';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-// import moment from 'moment';
+import moment from 'moment';
 import Notodo from './Notodo';
 function App() {
 
@@ -22,15 +22,15 @@ function App() {
           .map(doc => {
             return {
               ...doc.data(),
-              todo: doc.data().todo,
-
-              timestamp: !doc.data().timestamp ? "" : doc.data().timestamp.toDate().toLocaleString()
+              id: doc.id,
+              timestamp: moment(!doc.data().timestamp ? "" : doc.data().timestamp.toDate().toLocaleString()).format('LLLL')
 
             }
           }
 
           )
-    )})
+      )
+    })
 
   }, []);
 

@@ -22,7 +22,7 @@ li {
 	align-items: center;
 	justify-content: center;
 }
-.todo__form {
+.todo__form, .form {
 	display: flex;
 	flex-direction: row !important;
 	margin: 10px;

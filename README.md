@@ -2,6 +2,10 @@
 
 https://renetodoapp.netlify.app/
 
+## Screenshots of the App
+![](images/one.png)
+![](images/two.png)
+
 ## Available Scripts
 
 In the project directory, you can run:

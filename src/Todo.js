@@ -28,7 +28,7 @@ function Todo(props) {
         event.preventDefault();
 
         db.collection('todos').doc(props.todo.id).set({
-            todo: input
+            todo: input,
         }, { merge: true })
         setOpen(false);
     }
@@ -39,8 +39,8 @@ function Todo(props) {
                 open={open}
                 onClose={e => setOpen(false)} >
                 <div className={classes.paper}>
-                    <h1>You can change now the Todo</h1>
-                    <form>
+                    <h3>You can change</h3>
+                    <form className="update__todo">
                         <TextareaAutosize
                             rowsMin={2}
                             className="edit__text"
@@ -49,12 +49,12 @@ function Todo(props) {
                             multiline
                             rowsMax={4}
                             placeholder={props.todo.todo}
-                            value={input}
+                            value={!input ? props.todo.todo : input}
                             onChange={event => setInput(event.target.value)}
 
                         />
                         {/* <input placeholder={props.todo.todo} value={input} onChange={event => setInput(event.target.value)} /> */}
-                        <Button type="submit" onClick={updateTodo} variant="contained" color="secondary">Update Todo</Button>
+                        <Button type="submit" onClick={updateTodo} variant="contained" color="secondary">Update</Button>
 
                     </form>
                 </div>
@@ -63,7 +63,7 @@ function Todo(props) {
 
             <List key={props.todo.id} className="todo__list">
                 <ListItem>
-                    <ListItemText className="todo__one" primary={props.todo.todo} secondary={props.todo.timestamp} />
+                    <ListItemText className="todo__one" primary={props.todo.todo} secondary={`Created ${props.todo.timestamp}`} />
 
                 </ListItem>
                 <EditIcon className="edit__icon" onClick={e => setOpen(true)}>Edit</EditIcon>
